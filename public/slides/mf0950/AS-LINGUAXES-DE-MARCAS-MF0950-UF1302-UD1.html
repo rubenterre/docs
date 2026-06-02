@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="gl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AS LINGUAXES DE MARCAS · MF0950 · UF1302 · UD1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #191919;
+      --surface-2: #565656;
+      --text: #f5f5f5;
+      --muted: #d0d0d0;
+      --accent: #28e98c;
+      --accent-blue: #0d6dd6;
+      --border: #979797;
+    }
+
+    html, body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .reveal {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      font-size: 28px;
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal h1,
+    .reveal h2,
+    .reveal h3 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 0.5rem;
+      line-height: 1.05;
+    }
+
+    .reveal h1 { font-size: 2.4rem; }
+    .reveal h2 { font-size: 2rem; }
+    .reveal h3 { font-size: 1.4rem; }
+    .reveal p,
+    .reveal li { font-size: 1.05rem; line-height: 1.45; }
+
+    .slides section {
+      background:
+        linear-gradient(rgba(0,0,0,.64), rgba(0,0,0,.64)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.06), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,.05), transparent 24%),
+        linear-gradient(120deg, #111 0%, #1a1a1a 55%, #101010 100%);
+    }
+
+    .slide-shell {
+      width: 100%;
+      min-height: 700px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-shell {
+      width: 100%;
+      min-height: 700px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      position: relative;
+    }
+
+    .title-box {
+      max-width: 640px;
+      padding: 1rem 0 0 0.2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .meta-chip {
+      margin-top: 1.25rem;
+      width: 300px;
+      background: rgba(120,120,120,.62);
+      color: #fff;
+      padding: 0.7rem 1rem;
+      font-size: .8rem;
+      font-weight: 700;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .bubble-row {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.5rem;
+      z-index: 1;
+    }
+
+    .bubble,
+    .bubble-grey {
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.18;
+      box-sizing: border-box;
+      padding: 1rem;
+      aspect-ratio: 1;
+    }
+
+    .bubble {
+      background: var(--accent-blue);
+    }
+
+    .bubble-grey {
+      background: #565656;
+    }
+
+    .b-s { width: 150px; font-size: .62rem; }
+    .b-m { width: 175px; font-size: .76rem; }
+    .b-l { width: 205px; font-size: .86rem; }
+    .b-xl { width: 230px; font-size: 1rem; }
+    .b-xxl { width: 560px; font-size: 1rem; padding: 3rem; }
+
+    .main-circle {
+      width: 100%;
+      max-width: 700px;
+      aspect-ratio: 1;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      color: #fff;
+      padding: 4rem 4.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .main-circle.grey {
+      background: #565656;
+    }
+
+    .main-circle .mini-bubble {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 165px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #565656;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .side-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .side-stack .bubble-grey {
+      width: 155px;
+      font-size: .74rem;
+    }
+
+    .highlight {
+      background: var(--accent-blue);
+      padding: 0.06em 0.24em;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
+    .feature-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .feature-num {
+      width: 46px;
+      height: 46px;
+      background: rgba(255,255,255,.18);
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .feature-item span {
+      display: block;
+      font-size: .7rem;
+      color: #f0f0f0;
+      opacity: .92;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .code-block {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      white-space: pre-line;
+      margin: 1rem 0;
+    }
+
+    .tag-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0.75rem 1rem;
+      align-items: start;
+      margin-top: 1.2rem;
+      font-size: .92rem;
+    }
+
+    .tag {
+      background: rgba(255,255,255,.18);
+      color: #fff;
+      font-weight: 800;
+      padding: 0.3rem 0.7rem;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .tag-desc strong {
+      display: inline-block;
+      background: var(--accent-blue);
+      padding: 0.12rem 0.3rem;
+      margin-bottom: 0.18rem;
+      font-size: .76rem;
+    }
+
+    .tag-desc p {
+      margin: 0.12rem 0 0;
+      font-size: .66rem;
+      color: #f1f1f1;
+      opacity: .95;
+    }
+
+    .link-line {
+      color: #dcdcdc;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    .footer-note {
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.2rem;
+      font-size: 0.56rem;
+      opacity: .8;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    @media (max-width: 1100px) {
+      .slide-shell { grid-template-columns: 1fr; }
+      .side-stack { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+      .bubble-row { position: static; margin-top: 2rem; flex-wrap: wrap; justify-content: center; }
+      .hero-shell { min-height: auto; }
+      .main-circle { max-width: 100%; border-radius: 2rem; aspect-ratio: auto; }
+      .main-circle .mini-bubble { position: static; transform: none; margin: 1rem auto 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <div class="hero-shell">
+          <div class="title-box">
+            <h1>AS LINGUAXES DE MARCAS</h1>
+            <div class="meta-chip">MF0950 · UF1302<br>UD 1</div>
+          </div>
+
+          <div class="bubble-row">
+            <div class="bubble b-m">CARACTERÍSTICAS DAS LINGUAXES DE MARCAS</div>
+            <div class="bubble b-m">ESTRUTURA DUN DOCUMENTO</div>
+            <div class="bubble b-m">NAVEGADORES WEB</div>
+            <div class="bubble b-m">MARCAS PARA DAR FORMATO</div>
+            <div class="bubble b-m">LIGAZÓNS</div>
+            <div class="bubble b-m">MARCOS E CAPAS</div>
+          </div>
+
+          <div class="footer-note">Rubén Terré · Deseño gráfico & web</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell">
+          <div class="main-circle">
+            <h2>CARACTERÍSTICAS DAS LINGUAXES DE MARCAS</h2>
+            <p>• As <strong>linguaxes de marcado</strong> se utilizan para <strong>describir a estrutura</strong> e presentación dun documento ou contido.</p>
+            <div class="mini-bubble">CARACTERÍSTICAS</div>
+          </div>
+
+          <div class="side-stack">
+            <div class="bubble-grey">UTILIZACIÓN<br>DE<br>ETIQUETAS</div>
+            <div class="bubble-grey">COMPATIBILIDADE</div>
+            <div class="bubble-grey">EDITOR DE TEXTO</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell" style="grid-template-columns:1fr; justify-items:center;">
+          <div class="main-circle grey" style="max-width:780px;">
+            <h3>Características</h3>
+            <div class="feature-list">
+              <div class="feature-item"><div class="feature-num">1</div><div><strong>Utilizan etiquetas</strong><span>Por exemplo: “&lt;p&gt;Isto é un párrafo en HTML&lt;/p&gt;”</span></div></div>
+              <div class="feature-item"><div class="feature-num">2</div><div><strong>Propósito xeral</strong><span>Poden describir calquera tipo de contido</span></div></div>
+              <div class="feature-item"><div class="feature-num">3</div><div><strong>Independentes da plataforma</strong><span>Poden ser utilizados por todo tipo de S.O. e plataformas</span></div></div>
+              <div class="feature-item"><div class="feature-num">4</div><div><strong>Lexibles por humanos</strong><span>Podemos interpretar o código</span></div></div>
+              <div class="feature-item"><div class="feature-num">5</div><div><strong>Extensibles</strong><span>Permiten aos usuarios crear as súas etiquetas</span></div></div>
+              <div class="feature-item"><div class="feature-num">6</div><div><strong>Baseadas en texto</strong><span>Almacénanse nun arquivo de texto que pode ser editado e procesado con aplicacións</span></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell">
+          <div class="main-circle grey">
+            <h2>UTILIZACIÓN DE ETIQUETAS</h2>
+            <p>As etiquetas ou marcas en HTML son <span class="highlight">códigos especiais</span> que se utilizan para <span class="highlight">definir a estrutura, o contido e a aparencia</span> dos documentos na web.</p>
+            <p>• As <span class="highlight">etiquetas</span> de HTML definen cabeceiras, parágrafos, listas, imaxes…</p>
+            <p>• Os <span class="highlight">atributos</span> de HTML son información adicional que se engade dentro das etiquetas para especificar características do elemento.</p>
+          </div>
+
+          <div class="side-stack">
+            <div class="bubble-grey">ETIQUETAS</div>
+            <div class="bubble-grey">ATRIBUTOS</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell" style="grid-template-columns:1fr; justify-items:center;">
+          <div class="main-circle grey" style="max-width:760px;">
+            <h2>Etiquetas</h2>
+            <p>• <span class="highlight">Etiquetas</span> de HTML de <span class="highlight">inicio e peche</span>:</p>
+            <div class="code-block">&lt;p&gt; Exemplo de párrafo &lt;/p&gt;
+&lt;h1&gt;Exemplo de titular &lt;/h1&gt;</div>
+
+            <p>• <span class="highlight">Etiquetas</span> de HTML <span class="highlight">sen peche (autopeche)</span>:</p>
+            <div class="code-block">&lt;img src="imaxe.jpg" alt="imaxe de exemplo"/&gt;
+&lt;br&gt;
+&lt;hr&gt;</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell" style="grid-template-columns:1fr; justify-items:center;">
+          <div class="main-circle grey" style="max-width:760px;">
+            <h2>ATRIBUTOS</h2>
+            <p><em>Exemplo:</em></p>
+            <p><span class="highlight">&lt;img src="imaxe.jpg" alt="imaxe de exemplo"/&gt;</span></p>
+            <p>Neste exemplo tanto <span class="highlight">src="imaxe.jpg"</span> como a <span class="highlight">alt="imaxe de exemplo"</span> son atributos da etiqueta de imaxe xa que <span class="highlight">engaden datos</span> que definen unha imaxe nunha ubicación e un texto alternativo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell" style="grid-template-columns:1fr; justify-items:center;">
+          <div class="main-circle grey" style="max-width:760px;">
+            <h2>COMPATIBILIDADE</h2>
+            <p>Cada vez menos, pero <span class="highlight">dependendo do navegador existen etiquetas que varían na súa sintaxe</span>. Como a etiqueta &lt;bgsound&gt; que era exclusiva Internet Explorer.</p>
+            <p>• <span class="highlight">Comprobar a compatibilidade</span> dunha etiqueta:<br><span class="link-line">https://caniuse.com/</span></p>
+            <p>• <span class="highlight">Comprobar</span> se o noso <strong>código é estandarizado</strong>, é dicir, validado pola <span class="highlight">W3C</span>:<br><span class="link-line">https://html.spec.whatwg.org/</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell" style="grid-template-columns:1fr; justify-items:center;">
+          <div class="main-circle grey" style="max-width:760px;">
+            <h2>Editores de texto</h2>
+            <p>Os editores de texto <span class="highlight">son aplicacións informáticas</span> que se usan para <span class="highlight">crear e modificar documentos</span>.</p>
+            <div class="feature-list">
+              <div class="feature-item"><div class="feature-num">A</div><div><strong>Básicos</strong><span>Bloc de notas en Windows ou o TextEdit en Mac OS.</span></div></div>
+              <div class="feature-item"><div class="feature-num">B</div><div><strong>Específicos</strong><span>Sublime Text, Visual Studio Code ou Emacs</span></div></div>
+              <div class="feature-item"><div class="feature-num">C</div><div><strong>IDE</strong><span>Eclipse, Visual Studio, IntelliJ IDEA ou Xcode</span></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="hero-shell">
+          <div class="title-box">
+            <h1>ESTRUTURA DUN DOCUMENTO CREADO CON LINGUAXE DE MARCAS</h1>
+          </div>
+
+          <div class="bubble-row" style="align-items:center; bottom: 0.4rem;">
+            <div class="bubble-grey b-m">ENCABEZADO</div>
+            <div class="bubble-grey b-m">TÍTULO</div>
+            <div class="bubble-grey b-m">ESTILOS</div>
+            <div class="bubble-grey b-m">CORPO</div>
+            <div class="bubble-grey b-m">SCRIPTS</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell">
+          <div class="main-circle grey" style="max-width:760px;">
+            <h2>ENCABEZADOS</h2>
+            <p>Atópanse <span class="highlight">dentro do &lt;head&gt;</span> dunha páxina web</p>
+            <div class="tag-grid">
+              <div class="tag">&lt;!DOCTYPE html&gt;</div>
+              <div class="tag-desc"><strong>Especifica a versión do HTML</strong><p>A máis usada é esta que corresponde a HTML5</p></div>
+
+              <div class="tag">&lt;html&gt;</div>
+              <div class="tag-desc"><strong>Indica o inicio do documento HTML</strong><p>É a etiqueta que marca o inicio e o fin do documento HTML</p></div>
+
+              <div class="tag">&lt;head&gt;</div>
+              <div class="tag-desc"><strong>Contén a información sobre o documento</strong><p>Encontramos o título, descrición, palabras chave…</p></div>
+
+              <div class="tag">&lt;meta charset=&quot;UTF-8&quot;&gt;</div>
+              <div class="tag-desc"><strong>Especifica a codificación de caracteres</strong><p>UTF-8 é unha codificación versátil capaz de representar practicamente calquera caracter de todas as linguas, así como símbolos e emojis.</p></div>
+
+              <div class="tag">&lt;title&gt;</div>
+              <div class="tag-desc"><strong>Define o título da páxina</strong><p>Aparece na lapela do navegador e nos resultados de busca.</p></div>
+            </div>
+          </div>
+
+          <div class="side-stack">
+            <div class="bubble-grey">OUTROS<br>ENCABEZADOS</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell" style="grid-template-columns:1fr; justify-items:center;">
+          <div class="main-circle grey" style="max-width:760px;">
+            <h2>OUTROS ENCABEZADOS</h2>
+            <p>Úsanse para <strong>definir a xerarquía e importancia do contido</strong></p>
+            <div class="tag-grid" style="grid-template-columns: 110px 1fr;">
+              <div class="tag">&lt;h1&gt;</div><div class="tag-desc"><strong>Maior importancia e tamaño</strong><p>Para títulos principais</p></div>
+              <div class="tag">&lt;h2&gt;</div><div class="tag-desc"><strong>Segundo de maior importancia</strong><p>Para subtítulos relevantes</p></div>
+              <div class="tag">&lt;h3&gt;</div><div class="tag-desc"><strong>Terceiro de maior importancia</strong><p>Para subtítulos de menor importancia</p></div>
+              <div class="tag">&lt;h4&gt;</div><div class="tag-desc"><strong>Cuarto nivel de importancia</strong><p>Resaltar información ou subtítulos nivel medio</p></div>
+              <div class="tag">&lt;h5&gt;</div><div class="tag-desc"><strong>Quinto nivel de importancia</strong><p>Para subtítulos con pouca relevancia</p></div>
+              <div class="tag">&lt;h6&gt;</div><div class="tag-desc"><strong>Menor nivel de importancia</strong><p>Para subtítulos con moi pouca relevancia</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide-shell" style="grid-template-columns:1fr; justify-items:center;">
+          <div class="main-circle grey" style="max-width:920px; padding-top: 3rem; padding-bottom: 3rem;">
+            <h2>Conversión a HTML</h2>
+            <p>Esta versión web conserva a estrutura visual principal da presentación orixinal e recompón en Reveal.js os bloques visibles do tema: portada, características, etiquetas, atributos, compatibilidade, editores de texto e estrutura do documento.</p>
+            <p>Para continuar a conversión completa do resto das 90 diapositivas, o seguinte paso sería repetir esta mesma maqueta nas seccións de <strong>título</strong>, <strong>estilos</strong>, <strong>corpo</strong>, <strong>scripts</strong>, <strong>navegadores web</strong>, <strong>marcas para dar formato</strong>, <strong>ligazóns</strong> e <strong>marcos e capas</strong>.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script>
+    const deck = new Reveal({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      center: true
+    });
+    deck.initialize();
+  </script>
+</body>
+</html>

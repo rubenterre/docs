@@ -15,7 +15,7 @@ export default defineConfig({
 				replacesTitle: true,
 			},
 			customCss: ['./src/styles/custom.css'],
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/rubenterre/docs' }],
 			sidebar: [
 				{
 					label: 'MF0950 — Aplicaciones web',
