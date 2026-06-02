@@ -1,0 +1,33 @@
+---
+// Footer personalizado — sobreescribe el componente Footer de Starlight
+---
+
+<footer class="custom-footer">
+  <p>Rubén Terré · 2026 · Feito en Santiago de Compostela con <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a></p>
+</footer>
+
+<style>
+  .custom-footer {
+    border-top: 0.5px solid #979797;
+    padding: 1.5rem var(--sl-content-pad-x, 1rem);
+    text-align: center;
+  }
+
+  .custom-footer p {
+    font-family: "Poppins-Regular", system-ui, sans-serif;
+    font-size: 0.75rem;
+    color: var(--sl-color-gray-3);
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .custom-footer a {
+    color: var(--sl-color-accent);
+    text-decoration: none;
+    transition: color 300ms ease;
+  }
+
+  .custom-footer a:hover {
+    color: var(--sl-color-accent-high);
+  }
+</style>

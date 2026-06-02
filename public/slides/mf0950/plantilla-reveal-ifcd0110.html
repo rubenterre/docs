@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantilla Reveal.js — IFCD0110</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+    <link rel="stylesheet" href="/slides/reveal-theme-ifcd0110.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div class="hero-grid">
+            <div>
+              <span class="kicker">IFCD0110 · Reveal.js · Astro</span>
+              <h1>Plantilla base para presentaciones del certificado</h1>
+              <p class="lead">Una base coherente con la estética dark de la web docs: fondo negro, acento verde y tipografía Sora + Poppins.</p>
+            </div>
+            <div class="hero-art">
+              <div class="hero-orbit"></div>
+              <div class="hero-orbit-2"></div>
+              <div class="hero-chip top">HTML</div>
+              <div class="hero-chip right">CSS</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <span class="kicker">Estructura</span>
+          <h2>Cómo usar esta plantilla</h2>
+          <div class="card-grid">
+            <article class="mini-card">
+              <h4>1. Duplica el HTML</h4>
+              <p>Parte de este archivo y renómbralo según módulo, unidad y número de presentación, por ejemplo <code>uf1287-01.html</code>.</p>
+            </article>
+            <article class="mini-card">
+              <h4>2. Mantén el tema común</h4>
+              <p>La identidad visual vive en <code>/slides/reveal-theme-ifcd0110.css</code>, así todas las presentaciones comparten base.</p>
+            </article>
+            <article class="mini-card">
+              <h4>3. Cambia solo el contenido</h4>
+              <p>Reemplaza título, secciones, tablas y bloques. Reveal.js ya te da navegación, progreso y modo speaker.</p>
+            </article>
+            <article class="mini-card">
+              <h4>4. Enlaza desde docs</h4>
+              <p>En cada archivo Markdown usa rutas como <code>/slides/mf0950/uf1287-01.html</code>.</p>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <span class="kicker">Componentes</span>
+          <h2>Bloques visuales disponibles</h2>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span class="value">Hero</span>
+              <span class="label">Portada con composición visual y claim corto.</span>
+            </article>
+            <article class="stat-card">
+              <span class="value">Cards</span>
+              <span class="label">Cuadrículas de 2 o 3 bloques para conceptos, pasos o recursos.</span>
+            </article>
+            <article class="stat-card">
+              <span class="value">Code</span>
+              <span class="label">Bloques de código con Fira Code, borde fino y fondo oscuro integrado.</span>
+            </article>
+          </div>
+          <blockquote>
+            El objetivo no es hacer slides espectaculares por efecto, sino presentaciones limpias, legibles y consistentes con la documentación del temario.
+          </blockquote>
+        </section>
+
+        <section>
+          <span class="kicker">Ejemplo</span>
+          <h2>Tabla para índice de unidades o recursos</h2>
+          <table class="table-clean">
+            <thead>
+              <tr>
+                <th>Unidad</th>
+                <th>Objetivo</th>
+                <th>Formato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>UF1287</td>
+                <td>Fundamentos y estructura de documentos web</td>
+                <td>Presentación</td>
+              </tr>
+              <tr>
+                <td>UF1288</td>
+                <td>Lenguajes de marcas y maquetación</td>
+                <td>Presentación</td>
+              </tr>
+              <tr>
+                <td>MF0951</td>
+                <td>Cliente, servidor y despliegue</td>
+                <td>Secuencia de slides</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="footer-note">Puedes mezclar tablas, listas, bloques de código y columnas sin salirte de la identidad visual del proyecto.</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        slideNumber: 'c/t',
+        transition: 'fade',
+        backgroundTransition: 'fade',
+        center: true,
+        margin: 0.06,
+        width: 1600,
+        height: 900
+      });
+    </script>
+  </body>
+</html>

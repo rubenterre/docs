@@ -1,0 +1,367 @@
+/*
+  ============================================================
+  IFCD0110 — Tema personalizado para Astro Starlight
+  Basado en el SCSS de referencia del portfolio / temarios
+  ============================================================
+  Paleta:
+    background : #0d0d0d
+    primary    : #ffffff
+    secondary  : #28e98c  ← acento verde
+    third      : #191919  ← superficie de tarjetas
+    hr         : #979797  ← bordes y separadores
+
+  Fuentes:
+    Poppins-Regular  → cuerpo de texto
+    Poppins-Medium   → subencabezados / UI
+    Poppins-Bold     → énfasis / títulos importantes
+    Sora             → titulares / display
+  ============================================================
+*/
+
+/* ─── Fuentes ──────────────────────────────────────────── */
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora-VariableFont_wght.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("/fonts/Poppins-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("/fonts/Poppins-Medium.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("/fonts/Poppins-Bold.ttf");
+  font-display: swap;
+}
+
+/* ─── Variables Starlight — Modo oscuro (por defecto) ───── */
+/*
+  Starlight usa [data-theme='dark'] y [data-theme='light'].
+  La paleta de referencia es dark-first (#0d0d0d de fondo),
+  así que sobreescribimos ambos temas manteniendo la identidad.
+*/
+
+:root,
+[data-theme='dark'] {
+  /* Tipografía */
+  --sl-font: "Poppins-Regular", system-ui, sans-serif;
+  --sl-font-mono: "Fira Code", "Cascadia Code", ui-monospace, monospace;
+
+  /* Acento principal: verde #28e98c */
+  --sl-color-accent-low:  #0a3d24;   /* tint muy oscuro del verde */
+  --sl-color-accent:      #28e98c;   /* $color-secondary */
+  --sl-color-accent-high: #6ef5b5;   /* versión más clara para texto */
+
+  /* Superficies oscuras */
+  --sl-color-white:       #ffffff;
+  --sl-color-gray-1:      #e8e8e8;   /* texto principal */
+  --sl-color-gray-2:      #b0b0b0;
+  --sl-color-gray-3:      #979797;   /* $color-hr */
+  --sl-color-gray-4:      #444444;
+  --sl-color-gray-5:      #1e1e1e;
+  --sl-color-gray-6:      #191919;   /* $color-third — superficie de tarjetas */
+  --sl-color-black:       #0d0d0d;   /* $color-background */
+
+  /* Texto de acento en sidebar / headings */
+  --sl-color-text-accent: #28e98c;
+
+  /* Badges y callouts */
+  --sl-color-blue:        #28e98c;
+  --sl-color-blue-low:    #0a3d24;
+  --sl-color-blue-high:   #6ef5b5;
+
+  --sl-color-green:       #28e98c;
+  --sl-color-green-low:   #0a3d24;
+  --sl-color-green-high:  #6ef5b5;
+
+  --sl-color-red:         #ff7174;   /* color de error / peligro */
+  --sl-color-red-low:     #3d0a0b;
+  --sl-color-red-high:    #ffaaab;
+
+  --sl-color-orange:      #fdc741;   /* avisos */
+  --sl-color-orange-low:  #3a2d00;
+  --sl-color-orange-high: #ffe08a;
+
+  --sl-color-purple:      #916c96;
+  --sl-color-purple-low:  #2e1a30;
+  --sl-color-purple-high: #d4b8d7;
+}
+
+/* ─── Modo claro: invertimos la paleta ───────────────────── */
+[data-theme='light'] {
+  --sl-color-accent-low:  #c8fae3;
+  --sl-color-accent:      #16a865;   /* verde más oscuro, legible en blanco */
+  --sl-color-accent-high: #0a5c38;
+
+  --sl-color-white:       #ffffff;
+  --sl-color-gray-1:      #1a1a1a;
+  --sl-color-gray-2:      #3a3a3a;
+  --sl-color-gray-3:      #666666;
+  --sl-color-gray-4:      #999999;
+  --sl-color-gray-5:      #dddddd;
+  --sl-color-gray-6:      #f5f5f5;
+  --sl-color-black:       #ffffff;
+
+  --sl-color-text-accent: #16a865;
+
+  --sl-color-blue:        #16a865;
+  --sl-color-blue-low:    #c8fae3;
+  --sl-color-blue-high:   #0a5c38;
+
+  --sl-color-red:         #c0392b;
+  --sl-color-red-low:     #fde8e8;
+  --sl-color-red-high:    #8c1a12;
+
+  --sl-color-orange:      #c47e00;
+  --sl-color-orange-low:  #fff3d0;
+  --sl-color-orange-high: #7a4e00;
+}
+
+/* ─── Ocultar selector de tema (dark/light toggle) ──────── */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* ─── Body base ──────────────────────────────────────────── */
+body {
+  font-family: "Poppins-Regular", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(0deg,rgba(13, 13, 13, 1) 60%, rgba(13, 13, 13, 0) 100%), url(Stars.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ─── Tipografía: headings con Sora ──────────────────────── */
+h1, h2, h3, h4, h5, h6,
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4 {
+  font-family: "Sora", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* ─── Logo / título del sitio ───────────────────────────── */
+.site-title {
+  font-family: "Sora", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--sl-color-accent) !important;
+}
+
+/* ─── Links ─────────────────────────────────────────────── */
+a {
+  color: var(--sl-color-accent);
+  text-decoration-color: color-mix(in srgb, var(--sl-color-accent) 40%, transparent);
+  transition: color 300ms ease, text-decoration-color 300ms ease;
+}
+a:hover {
+  color: var(--sl-color-accent-high);
+  text-decoration-color: var(--sl-color-accent-high);
+}
+
+/* Buttons links */
+
+.sl-link-button {
+  color: var(--sl-color-black);
+}
+
+.sl-link-button:hover {
+  color: var(--sl-color-gray-3);
+}
+
+
+/* ─── Sidebar: ítem activo ──────────────────────────────── */
+[aria-current='page'],
+.sidebar-content a[aria-current='page'] {
+  background-color: color-mix(in srgb, #28e98c 10%, transparent);
+  color: var(--sl-color-accent) !important;
+  border-inline-start-color: #28e98c !important;
+}
+
+/* ─── Separadores (hr) ───────────────────────────────────── */
+hr,
+.sl-markdown-content hr {
+  border: 0;
+  border-top: 0.5px solid #979797;
+  margin: 2.5rem 0;
+}
+
+/* ─── Código inline ──────────────────────────────────────── */
+code:not(pre > code) {
+  background-color: color-mix(in srgb, #28e98c 10%, transparent);
+  color: #28e98c;
+  padding: 0.1em 0.4em;
+  border-radius: 8px;
+  font-size: 0.875em;
+  border: 1px solid #979797;
+}
+
+/* ─── Bloques de código ──────────────────────────────────── */
+pre {
+  background-color: #191919 !important;  /* $color-third */
+  border: 1px solid #979797;             /* $color-hr */
+  border-radius: 8px;
+}
+
+/* ─── Tarjetas / cards del contenido ────────────────────── */
+.card,
+.sl-card {
+  background-color: #191919;             /* $color-third */
+  border: 1px solid #979797;             /* $color-hr */
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px 0px rgba(255, 255, 255, 0.12);
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.card:hover,
+.sl-card:hover {
+  box-shadow: 0px 2px 12px 0px rgba(255, 255, 255, 0.24);
+}
+
+/* ─── Selección de texto ─────────────────────────────────── */
+::selection {
+  background-color: color-mix(in srgb, #28e98c 30%, transparent);
+  color: #0d0d0d;
+}
+
+/* ─── Badges ─────────────────────────────────────────────── */
+.sl-badge {
+  border-radius: 8px;
+  border: 1px solid #979797;
+  font-family: "Poppins-Medium", system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+.sl-badge.tip,
+.sl-badge.note {
+  background-color: color-mix(in srgb, #28e98c 10%, transparent);
+  color: #28e98c;
+  border-color: #28e98c;
+}
+
+/* ─── Efectos hover en elementos interactivos ────────────── */
+/*
+  Replica el mixin hover-effect del SCSS de referencia:
+  escala 1.05 con ease-out a 300ms.
+*/
+.sl-sidebar nav a,
+.pagination-link {
+  transform: scale(1, 1) translateZ(0);
+  transition: transform 300ms ease-out;
+  will-change: transform;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+.sl-sidebar nav a:hover,
+.pagination-link:hover {
+  transform: scale(1.03, 1.03) translateZ(0);
+}
+
+/* ─── Pills (para usar en MDX si es necesario) ───────────── */
+.main__pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #979797;
+  width: fit-content;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.main__span {
+  color: #28e98c;
+}
+
+/* ─── Animación de borde cónico (skills card) ────────────── */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  to { --angle: 360deg; }
+}
+
+/* ─── Hero: cosmonauta flotando + glow verde ─────────────── */
+/*
+  Aplicar la clase .hero-float al <img> o contenedor del
+  cosmonauta en el hero para activar ambos efectos:
+    1. float  → movimiento arriba/abajo suave (6px, 4s)
+    2. glow   → pulse de sombra verde con los colores del proyecto
+*/
+
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes hero-glow-pulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0  8px color-mix(in srgb, #28e98c 60%, transparent))
+      drop-shadow(0 0 20px color-mix(in srgb, #28e98c 30%, transparent))
+      drop-shadow(0 0 40px color-mix(in srgb, #0a3d24 50%, transparent));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 14px color-mix(in srgb, #6ef5b5 80%, transparent))
+      drop-shadow(0 0 32px color-mix(in srgb, #28e98c 55%, transparent))
+      drop-shadow(0 0 60px color-mix(in srgb, #28e98c 25%, transparent));
+  }
+}
+
+/* Clase base — aplicar al <img> del cosmonauta */
+.hero-float {
+  animation:
+    hero-float       4s  ease-in-out infinite,
+    hero-glow-pulse  3s  ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* Selector automático: imagen dentro del hero de Starlight */
+.hero .hero-image img,
+.hero img,
+[class*='HeroImage'] img,
+.sl-hero img {
+  animation:
+    hero-float       4s  ease-in-out infinite,
+    hero-glow-pulse  3s  ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* Respeto a usuarios con preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .hero-float,
+  .hero .hero-image img,
+  .hero img,
+  [class*='HeroImage'] img,
+  .sl-hero img {
+    animation: none;
+    filter:
+      drop-shadow(0 0 12px color-mix(in srgb, #28e98c 45%, transparent))
+      drop-shadow(0 0 28px color-mix(in srgb, #28e98c 20%, transparent));
+  }
+}
